@@ -128,9 +128,23 @@ docker run -d -e env=production -e new=add --name c6 nginx
 @here Activity 3rd
 Create a container with your name and assign 2 CPUs to it and 500mb of RAM and then put a load on container and try to check if container exit after 100% utilisation or not. Also share the screenshot of resource utilisation when it is fully utilised as per defined limit of cpu and RAM.
 
+1  docker ps
+    2  docker run -d -e env=production --name leo nginx
+    3  docker ps -a
+    4  docker exec -it leo bash printenv
+    5  docker exec -it leo  printenv
+
+
 
 @here Activity 4th
 Create a container and pass 1 env variable with key as team and value as your team name. and print the env inside the container using printenv command. Create a container and pass the environmental variables using a file. and list all the envs inside the container using printenv command.
+
+
+touch 1.txt
+    7  nano 1.txt 
+    8  docker run -d --env-file=1.txt --name messi nginx
+    9  docker exec -it messi  printenv
+
 
 
 @here Activity 5th
@@ -146,3 +160,12 @@ Create docker volume named opstree-vol
 Create a nginx container.
 Mount the volume ""opstree-vol"" to nginx container with ReadOnly Permission.
 Go and try to edit any file at mounted path in container to ensure the permissions are correct or not."
+
+ docker volume create dbvol
+   12  docker run -d --name wordpress-container -v dbvol:/var/lib/mysql wordpress
+   13  docker volume ls
+   14  docker volume create testvol
+   15  docker volume ls
+   16  docker run -d --name nginxtask -v opstree-vol:/usr/share/nginx/html:ro nginx
+   17  docker exec -it nginxtask bash
+
