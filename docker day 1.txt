@@ -1,0 +1,42 @@
+sudo apt install docker.io -y 
+docker ps
+sudo usermod -aG docker $username
+newgrp docker
+sudo reboot
+
+@here Activity 1st
+"Running your first container : 
+1. Pull Docker Nginx Image. 
+2. List out the images in your system. 
+3. Run all the docker commands without sudo 
+4. Run out a container using Nginx Image and name your conatiner as per you team name in interactive mode.
+5. Run another container of Nginx and name your conatiner as per your name using detached mode." 
+
+ docker ps
+ 1236  docker pull nginx
+ 1237  docker ps
+ 1238  docker ps -a
+ 1239  docker run --name barca -it nginx
+ 1240  docker run --name leo -d nginx
+ 1241  docker ps
+ 1242  docker rm -f leo
+ 1243  docker rm -f barca
+ 1244  doker ps
+ 1245  docker ps
+ 1246  history
+
+
+@here Activity 2nd
+"Create a nginx create with your name and map hostname port 99 with container port of nginx. 
+Try to access the container over public network.
+Create a another container with your team and map with some random port in hostname machine and try to access the container over public network.
+Once both the containers are listed now list the containers."
+
+docker ps
+ 1248  docker run --name leo -d -p 99:80 nginx
+ 1249  docker run --name leo -d -P nginx
+ 1250  docker run --name barca -d -P nginx
+ 1251  docker ps
+ 1252  docker rm -f barca
+ 1253  docker rm -f leo
+ 1254  history
