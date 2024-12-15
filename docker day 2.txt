@@ -1,0 +1,72 @@
+@here Activity 1st
+"Task1:
+Part-1:
+Create a custom bridge network and create 2 busybox containers (c1 and c2 ) within that network, now try to access/ping the containers from inside the container. Also try to hit google.com from the container
+ docker network create my_custom_bridge
+ 24  docker run -d --name c1 --network my_custom_bridge busybox
+   25  docker run -dit --name c2 --network my_custom_bridge busybox
+   26  docker network ls
+   27  docker ps -a
+   28  docker rm -f c1
+   29  docker run -dit --name c1 --network my_custom_bridge busybox
+   30  docker ps -a
+   31  docker exec -it c1 sh
+
+
+Part-2:
+Now create another custom bridge network and create a container (c3) inside this network, try to access c1 from c3. Also access google.com from c3
+
+
+ docker network create my_custom_bridge1
+   33  docker run -dit --name c3 --network my_custom_bridge1 busybox
+   34  docker exec -it c3 sh
+
+
+Part-3:
+Create host network and run nginx container without port mapping within this network , try to hit nginx url from browser, also access google.com from this container
+
+  35  docker run -dit --name nginx_host --network host nginx
+   36  docker exec -it nginx_host bash
+
+Part-4:
+Create nginx container in none network and try to access this container from browser.also try to access google.com from this container."
+  
+ docker run -dit --name nginx_none --network none nginx
+
+
+------------------------------------ALL COMMANDS USED----------------------------------------
+
+
+ 23  docker network create my_custom_bridge
+   24  docker run -d --name c1 --network my_custom_bridge busybox
+   25  docker run -dit --name c2 --network my_custom_bridge busybox
+   26  docker network ls
+   27  docker ps -a
+   28  docker rm -f c1
+   29  docker run -dit --name c1 --network my_custom_bridge busybox
+   30  docker ps -a
+   31  docker exec -it c1 sh
+   32  docker network create my_custom_bridge1
+   33  docker run -dit --name c3 --network my_custom_bridge1 busybox
+   34  docker exec -it c3 sh
+   35  docker run -dit --name nginx_host --network host nginx
+   36  docker exec -it nginx_host bash
+   37  docker run -dit --name nginx_none --network none nginx
+
+
+-----------------------------------------------------------------------------------------------------
+
+
+@here Activity 2nd
+"-Create a account in dockerhub using mail you're mail ID.
+-Once account is created in dokcerhub then create a registry in dockerhub.
+-Now create a docker image using dockerfile and tag the image a/c to you're registry name and push to you're dockerhub registry.
+-Once image is pushed to dokcerhub registry.Share the screenshot of image created locally and image in dockerhub registry in group"
+
+
+ docker login -u hiiiiiiiii
+   26  sudo nano dockerfile
+   27  docker build -t hi .
+   28  docker tag hi hiiiiiiiii/demo:v1
+   29  docker images
+   30  docker push hiiiiiiiii/demo:v1
