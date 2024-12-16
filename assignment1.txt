@@ -1,0 +1,18 @@
+-------------------PART1--------------------------
+
+50  docker run -d --name assign -p 80:80 nginx
+   51  nano 1.html
+   52  cp 1.html 2.html
+   53  ls
+   54  nano 2.html 
+   55  docker cp 1.html  web2:/usr/share/nginx/html/index.html
+   56  docker cp 1.html  assign:/usr/share/nginx/html/index.html
+   57  docker cp 2.html  assign:/usr/share/nginx/html/index.html
+   58  crontab -e
+
+*/2 * * * * docker cp aayush.html website:/usr/share/nginx/html/index.html
+1-59/2 * * * * docker cp piyush.html
+
+C:\Windows\System32\Drivers\etc\hosts
+
+----------------PART2----------------------
